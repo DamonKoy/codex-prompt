@@ -34,6 +34,8 @@ codex plugin add prompt-refiner@prompt-refiner
 
 然后新开一个 Codex 任务，使用 `$prompt-refiner` 调用。更新插件后重新安装，并在新任务中验证。
 
+插件提供 `composerIcon` 元数据，Codex 可以在支持的界面呈现其入口；具体显示位置与排序由 Codex 宿主控制，插件不能指定固定插入到语音与模型控件之间。
+
 安装前或提交前可运行离线结构校验：
 
 ```bash

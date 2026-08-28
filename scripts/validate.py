@@ -13,6 +13,7 @@ MANIFEST = PLUGIN / ".codex-plugin" / "plugin.json"
 MARKETPLACE = ROOT / ".agents" / "plugins" / "marketplace.json"
 SKILL = PLUGIN / "skills" / "prompt-refiner" / "SKILL.md"
 SKILL_UI = PLUGIN / "skills" / "prompt-refiner" / "agents" / "openai.yaml"
+COMPOSER_ICON = PLUGIN / "assets" / "prompt-refiner.svg"
 
 
 def fail(message: str) -> None:
@@ -30,7 +31,15 @@ def read_json(path: Path) -> dict:
 
 
 def main() -> None:
-    for path in (MANIFEST, MARKETPLACE, SKILL, SKILL_UI, ROOT / "README.md", ROOT / "LICENSE"):
+    for path in (
+        MANIFEST,
+        MARKETPLACE,
+        SKILL,
+        SKILL_UI,
+        COMPOSER_ICON,
+        ROOT / "README.md",
+        ROOT / "LICENSE",
+    ):
         if not path.is_file():
             fail(f"missing required file: {path.relative_to(ROOT)}")
 
@@ -49,6 +58,8 @@ def main() -> None:
         fail("interface.defaultPrompt must contain one to three starter prompts")
     if any(not isinstance(prompt, str) or len(prompt) > 128 for prompt in prompts):
         fail("starter prompts must be strings of at most 128 characters")
+    if interface.get("composerIcon") != "./assets/prompt-refiner.svg":
+        fail("interface.composerIcon must point to the packaged prompt-refiner icon")
 
     marketplace = read_json(MARKETPLACE)
     if marketplace.get("name") != "prompt-refiner":
