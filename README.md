@@ -42,16 +42,22 @@ codex plugin add prompt-refiner@prompt-refiner
 python3 scripts/validate.py
 ```
 
+## 入口说明
+
+- 主入口：在 Codex 输入框输入 `$prompt-refiner`，或从 `@` / Skills 选择器调用。
+- `composerIcon`：官方插件元数据，宿主若支持会在输入区显示插件图标；**不能**指定插入到“语音按钮”与“模型选择器”之间的固定槽位。
+- 不做客户端注入、Accessibility 自动点击或 App 二进制补丁；这些会破坏升级安全。
+
 ## 发布给其他用户
 
 将仓库推送到 GitHub 后，其他用户可执行：
 
 ```bash
-codex plugin marketplace add OWNER/prompt-refiner
+codex plugin marketplace add DamonKoy/codex-prompt
 codex plugin add prompt-refiner@prompt-refiner
 ```
 
-发布前请将 `author`、仓库链接和版本信息替换为实际维护信息。每次发布请同步更新 `CHANGELOG.md` 并递增 `plugins/prompt-refiner/.codex-plugin/plugin.json` 中的版本号。
+每次发布请同步更新 `CHANGELOG.md` 并递增 `plugins/prompt-refiner/.codex-plugin/plugin.json` 中的版本号。
 
 ## 开源许可
 
