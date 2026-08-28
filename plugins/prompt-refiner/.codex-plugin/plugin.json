@@ -1,0 +1,22 @@
+{
+  "name": "prompt-refiner",
+  "version": "0.1.0",
+  "description": "将口语化任务改写为可直接用于 Codex 的清晰、可验证提示词。",
+  "author": {
+    "name": "Prompt Refiner Contributors"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Prompt Refiner",
+    "shortDescription": "把原始需求整理成可执行的 Codex 提示词。",
+    "longDescription": "仅增强提示词，不执行原始任务，不读取或修改本地文件，也不发送网络请求。",
+    "developerName": "Prompt Refiner Contributors",
+    "category": "Productivity",
+    "capabilities": ["Prompt refinement"],
+    "defaultPrompt": [
+      "使用 $prompt-refiner 增强这段需求：",
+      "使用 $prompt-refiner 把这段口语化任务整理成可执行的 Codex 提示词。"
+    ],
+    "brandColor": "#2563EB"
+  }
+}
